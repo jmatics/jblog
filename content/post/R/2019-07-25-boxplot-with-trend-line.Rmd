@@ -1,0 +1,120 @@
+---
+title: Boxplot with trend line
+author: Jayan Wijesingha
+date: '2019-07-25'
+slug: boxplot-with-trend-line
+categories:
+  - R
+tags:
+  - r
+  - ggplot
+  - plot
+image: "img/portfolio/barplot_trend.png"
+showonlyimage: false
+weight: 1
+---
+
+## Background
+
+Last week my colleague showed me a drawn graph and asked can we plot this kind of graph. It is a graph with grouped boxplot. Additionally, it contains a trend line that connects mean of each data box. So this post explains how to draw a graph like that using two ways;
+
++ **r** *ggplot2* library 
++ **r** *base plots* (using codes from [The R Graph Gallery](https://www.r-graph-gallery.com/146-boxplot-for-time-series/))
+
+
+> This data is sample data set from my colleague. The data contains VI (Vegetation Index) time series values for three different crops extracted from Landsat 8 data.
+
+### Load data
+
+#### Load libraries
+
+```{r echo = TRUE, error = FALSE, warning = FALSE, message = FALSE}
+library(ggplot2)
+library(readr)
+library(plyr)
+library(dplyr)
+library(RColorBrewer)
+```
+
+#### Read and prepare data
+```{r echo = TRUE, error = FALSE, warning = FALSE, message = FALSE}
+read.df <-
+  read.csv("D:/Blog_data/jblog/static/data/sample_ts.csv", header = TRUE)
+sample.df <- read.df # Make a copy of the read table
+levels(sample.df$date) # Checking the levels in the date column
+levels(sample.df$crop) # Checking the levels in the crop column
+# Reorder levels
+sample.df$date <-
+  factor(
+    sample.df$date,
+    levels = c("24-Apr-15", "10-May-15",
+               "04-Jul-15", "07-Aug-15"),
+    labels = c("April", "May", "July", "August")
+  )
+```
+
+### Plot with *ggplot* library
+
+```{r echo = TRUE, error = FALSE, warning = FALSE, message = FALSE, fig.width=10, fig.height=4}
+# Create a color palette for three crops
+my_colors = c("greenyellow", "gold3", "darksalmon")
+# Create a plot
+ggplot(data = sample.df, aes(x = date, y = NDVI, fill = crop)) +
+  geom_boxplot() + ylim(c(-0.2, 1.2)) +
+  stat_summary(
+    fun.y = mean,
+    colour = "red",
+    geom = "point",
+    position = position_dodge(width = 0.75)
+  ) +
+  stat_summary(
+    fun.y = mean,
+    colour = "red",
+    aes(group = 1),
+    geom = "line",
+    lwd = 1,
+    lty = 1
+  ) +
+  theme_bw(base_size = 12) +
+  scale_fill_manual(
+    values = my_colors,
+    name = "Crop Type",
+    labels = c("Maize", "Potato", "Sugar Beet")
+  ) +
+  labs(
+    x = "Month",
+    y = "VI",
+    title = "Phenology of the selected crops",
+    subtitle = "VI extracted from Landsat 8 time series data"
+  )
+```
+
+### Plot with *base* library
+
+```{r echo = TRUE, error = FALSE, warning = FALSE, message = FALSE, fig.width=10, fig.height=4}
+# Make the boxplot
+boxplot(
+  sample.df$NDVI ~ sample.df$crop + sample.df$date ,
+  ylim = c(-0.2, 1.2),
+  xaxt = "n" ,
+  xlab = "Date" ,
+  col = my_colors ,
+  pch = 20 ,
+  cex = 0.3 ,
+  ylab = "VI",
+  xlab = "Month",
+  main = "Phenology of the selected crops \n VI extracted from Landsat 8 time series data"
+)
+abline(v = seq(0, 3 * 4, 3) + 0.5 , col = "grey")
+axis(1, labels = levels(sample.df$date) , at = seq(2, 3 * 4, 3))
+# Add general trend
+a = aggregate(sample.df$NDVI , by = list(sample.df$crop, sample.df$date) , mean)
+lines(a[, 3], type = "l" , col = "red" , lwd = 2)
+#Add legend for crops
+legend(
+  "top",
+  fill = my_colors,
+  legend = c("Maize", "Potato", "Sugar Beet"),
+  horiz = T
+)
+```

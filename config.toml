@@ -7,6 +7,8 @@ disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
 [params]
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
@@ -41,9 +43,14 @@ googleAnalytics = ""
       #  hash = ""
 
   # Nav links in the side bar
+  #[[params.navlinks]]
+  #name = "Home"
+  #url = "portfolio/"
+  #home = true
+  
   [[params.navlinks]]
-  name = "Home"
-  url = "portfolio/"
+  name = "Blog"
+  url = "post/"
   home = true
 
   [[params.navlinks]]
@@ -65,3 +72,4 @@ googleAnalytics = ""
   #github        = "full profile url in github"
   #youtube       = "full profile url in youtube"
   #whatsapp      = "wa.me service link"
+
