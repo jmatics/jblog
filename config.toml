@@ -1,5 +1,5 @@
 baseurl = "https://jayan-sri.netlify.com/"
-title = "Creative portfolio"
+title = "Jayan Wijesingha"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
@@ -12,10 +12,10 @@ googleAnalytics = ""
   # Use custom.css for your custom styling
   style = "default"
   description = "Describe your website"
-  copyright = "&copy;2016 Your name or company"
+  copyright = "&copy;2019 Jayan Wijesingha"
   sidebarAbout = [
-    "I am a creative illustrator and graphic designer with more than 10 years of experience.",
-    "Originally from Toronto, currently based in London."
+    "I am passionate about maps. So I am a Geomatician with more than five years of experience.",
+    "Originally from Sri Lanka, currently based in a small town in Germany called Witzenhausen."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -43,7 +43,7 @@ googleAnalytics = ""
   # Nav links in the side bar
   [[params.navlinks]]
   name = "Home"
-  url = "portfolio/"
+  url = "/"
   home = true
 
   [[params.navlinks]]
