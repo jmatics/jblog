@@ -1,75 +1,60 @@
-baseurl = "https://jayan-sri.netlify.com/"
-title = "Jayan Wijesingha"
-theme = "hugo-creative-portfolio-theme"
+baseURL = "https://jayan-sri.netlify.com/"
 languageCode = "en-us"
-# Enable comments by entering your Disqus shortname
-disqusShortname = ""
-# Enable Google Analytics by entering your tracking code
+title = "Jayan Wijesingha"
+theme = "ezhil"
+
+pygmentsstyle = "vs"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
 googleAnalytics = ""
+disqusShortname = "jayan_sri"
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
-  # Style options: default (pink), blue, green, pink, red, sea, violet
-  # Use custom.css for your custom styling
-  style = "default"
-  description = "Describe your website"
-  copyright = "&copy;2019 Jayan Wijesingha"
-  sidebarAbout = [
-    "I am passionate about maps. So I am a Geomatician with more than five years of experience.",
-    "Originally from Sri Lanka, currently based in a small town in Germany called Witzenhausen."
-  ]
-  # Contact page
-     # Since this template is static, the contact form uses www.formspree.io as a
-     # proxy. The form makes a POST request to their servers to send the actual
-     # email. Visitors can send up to a 1000 emails each month for free.
-     #
-     # What you need to do for the setup?
-     #
-     # - set your email address under 'email' below
-     # - upload the generated site to your server
-     # - send a dummy email yourself to confirm your account
-     # - click the confirm link in the email from www.formspree.io
-     # - you're done. Happy mailing!
-  email = "you@yoursite.com"
+	subtitle = "Have a great day...!"
+	# Number of posts to show in recent posts list.
+	recentPostsCount = 10
+	# Content types which are excluded from recent posts and archive page.
+	excludedTypes = ["page"]
+	disableDisqusTypes = ["page"]
+	featherIconsCDN = true
 
-    # Optional Matomo analytics (formerly piwik)
-      # [params.analytics.matomo]
-      #  URL = "https://stats.example.com"
-      #  ID = "42"
-      #  # Track all subdomains with "*.example.com" (Optional)
-      #  domain = "www.example.com"
-      #  # Optional integrity check hash
-      #  hash = ""
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-  # Nav links in the side bar
-  #[[params.navlinks]]
-  #name = "Home"
-  #url = "portfolio/"
-  #home = true
-  
-  [[params.navlinks]]
-  name = "Blog"
-  url = "post/"
-  home = true
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
 
-  [[params.navlinks]]
-  name = "About"
-  url = "about/"
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
 
-  [[params.navlinks]]
-  name = "Get in touch"
-  url = "contact/"
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
 
-  [params.social]
-  facebook      = "https://www.facebook.com/Jayan.Sri"
-  #googleplus    = "full profile url in googleplus"
-  email         = "jayansrijeewantha@gmail.com"
-  twitter       = "https://twitter.com/jayan_sri"
-  linkedin      = "https://www.linkedin.com/in/jayanwijesingha/"
-  #stackoverflow = "full profile url in stackoverflow"
-  instagram     = "https://www.instagram.com/jayan_sri"
-  #github        = "full profile url in github"
-  #youtube       = "full profile url in youtube"
-  #whatsapp      = "wa.me service link"
+[[params.social]]
+name = "Github"
+icon = "github"
+url = ""
 
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/jayan_sri"
+
+[[params.social]]
+name = "RSS"
+icon = "rss"
+url = "/index.xml"
+
+[taxonomies]
+   tag = "tags"
