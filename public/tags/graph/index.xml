@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>graph on Jayan Wijesingha</title>
+    <link>/tags/graph/</link>
+    <description>Recent content in graph on Jayan Wijesingha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Boxplot with trend line</title>
+      <link>/post/r/boxplot-with-trend-line/</link>
+      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r/boxplot-with-trend-line/</guid>
+      <description>Last week my colleague showed me a drawn graph and asked can we plot this kind of graph. It is a graph with grouped boxplot. Additionally, it contains a trend line that connects mean of each data box. So this post explains how to draw a graph like that using two ways;
+r ggplot2 libraryr base plots (using codes from The R Graph Gallery)This data is sample data set from my colleague.</description>
+    </item>
+    
+  </channel>
+</rss>

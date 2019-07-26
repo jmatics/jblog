@@ -1,0 +1,123 @@
+---
+title: Boxplot with trend line
+author: Jayan Wijesingha
+date: '2019-07-26'
+slug: boxplot-with-trend-line
+categories:
+  - R
+tags:
+  - ggplot
+  - R
+  - graph
+#draft: yes
+---
+
+
+
+<p>Last week my colleague showed me a drawn graph and asked can we plot this kind of graph. It is a graph with grouped boxplot. Additionally, it contains a trend line that connects mean of each data box. So this post explains how to draw a graph like that using two ways;</p>
+<ul>
+<li><strong>r</strong> <em>ggplot2</em> library</li>
+<li><strong>r</strong> <em>base plots</em> (using codes from <a href="https://www.r-graph-gallery.com/146-boxplot-for-time-series/">The R Graph Gallery</a>)</li>
+</ul>
+<blockquote>
+<p>This data is sample data set from my colleague. The data contains VI (Vegetation Index) time series values for three different crops extracted from Landsat 8 data.</p>
+</blockquote>
+<div id="load-data" class="section level3">
+<h3>Load data</h3>
+<div id="load-libraries" class="section level4">
+<h4>Load libraries</h4>
+<pre class="r"><code>library(tidyverse)
+library(RColorBrewer)</code></pre>
+</div>
+<div id="read-and-prepare-data" class="section level4">
+<h4>Read and prepare data</h4>
+<pre class="r"><code># Read data
+read.df &lt;-
+  read.csv(&quot;D:/Blog_data/jblog/static/data/sample_ts.csv&quot;, header = TRUE)
+
+# Make a copy of the read table
+sample.df &lt;- read.df
+
+# Checking the levels in the date column
+levels(sample.df$date) </code></pre>
+<pre><code>&gt;&gt; [1] &quot;04-Jul-15&quot; &quot;07-Aug-15&quot; &quot;10-May-15&quot; &quot;24-Apr-15&quot;</code></pre>
+<pre class="r"><code># Checking the levels in the crop column
+levels(sample.df$crop) </code></pre>
+<pre><code>&gt;&gt; [1] &quot;maize&quot;      &quot;potato&quot;     &quot;sugar beet&quot;</code></pre>
+<pre class="r"><code># Reorder levels
+sample.df$date &lt;-
+  factor(
+    sample.df$date,
+    levels = c(&quot;24-Apr-15&quot;, &quot;10-May-15&quot;,
+               &quot;04-Jul-15&quot;, &quot;07-Aug-15&quot;),
+    labels = c(&quot;April&quot;, &quot;May&quot;, &quot;July&quot;, &quot;August&quot;)
+  )</code></pre>
+</div>
+</div>
+<div id="plot-with-ggplot-library" class="section level3">
+<h3>Plot with <em>ggplot</em> library</h3>
+<pre class="r"><code># Create a color palette for three crops
+my_colors = c(&quot;greenyellow&quot;, &quot;gold3&quot;, &quot;darksalmon&quot;)
+
+# Create a plot uisng ggplot
+ggplot(data = sample.df, aes(x = date, y = NDVI, fill = crop)) +
+  geom_boxplot() + ylim(c(-0.2, 1.2)) +
+  stat_summary(
+    fun.y = mean,
+    colour = &quot;red&quot;,
+    geom = &quot;point&quot;,
+    position = position_dodge(width = 0.75)
+  ) +
+  stat_summary(
+    fun.y = mean,
+    colour = &quot;red&quot;,
+    aes(group = 1),
+    geom = &quot;line&quot;,
+    lwd = 1,
+    lty = 1
+  ) +
+  theme_bw(base_size = 12) +
+  scale_fill_manual(
+    values = my_colors,
+    name = &quot;Crop Type&quot;,
+    labels = c(&quot;Maize&quot;, &quot;Potato&quot;, &quot;Sugar Beet&quot;)
+  ) +
+  labs(
+    x = &quot;Month&quot;,
+    y = &quot;VI&quot;,
+    title = &quot;Phenology of the selected crops&quot;,
+    subtitle = &quot;VI extracted from Landsat 8 time series data&quot;
+  )</code></pre>
+<p><img src="/post/R/2019-07-26-boxplot-with-trend-line_files/figure-html/unnamed-chunk-3-1.png" width="960" /></p>
+</div>
+<div id="plot-with-base-library" class="section level3">
+<h3>Plot with <em>base</em> library</h3>
+<pre class="r"><code># Make the boxplot using base
+boxplot(
+  sample.df$NDVI ~ sample.df$crop + sample.df$date ,
+  ylim = c(-0.2, 1.2),
+  xaxt = &quot;n&quot; ,
+  xlab = &quot;Date&quot; ,
+  col = my_colors ,
+  pch = 20 ,
+  cex = 0.3 ,
+  ylab = &quot;VI&quot;,
+  xlab = &quot;Month&quot;,
+  main = &quot;Phenology of the selected crops \n VI extracted from Landsat 8 time series data&quot;
+)
+abline(v = seq(0, 3 * 4, 3) + 0.5 , col = &quot;grey&quot;)
+axis(1, labels = levels(sample.df$date) , at = seq(2, 3 * 4, 3))
+
+# Add general trend
+a = aggregate(sample.df$NDVI , by = list(sample.df$crop, sample.df$date) , mean)
+lines(a[, 3], type = &quot;l&quot; , col = &quot;red&quot; , lwd = 2)
+
+#Add legend for crops
+legend(
+  &quot;top&quot;,
+  fill = my_colors,
+  legend = c(&quot;Maize&quot;, &quot;Potato&quot;, &quot;Sugar Beet&quot;),
+  horiz = T
+)</code></pre>
+<p><img src="/post/R/2019-07-26-boxplot-with-trend-line_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+</div>
