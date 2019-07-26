@@ -52,6 +52,11 @@ icon = "twitter"
 url = "https://twitter.com/jayan_sri"
 
 [[params.social]]
+name = "Instagram"
+icon = "instagram"
+url = "https://www.instagram.com/jayan_sri"
+
+[[params.social]]
 name = "RSS"
 icon = "rss"
 url = "/index.xml"
