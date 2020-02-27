@@ -9,6 +9,12 @@
   </url>
   
   <url>
+    <loc>/tags/photoscan/</loc>
+    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
     <lastmod>2020-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -29,12 +35,6 @@
   <url>
     <loc>/post/uav-images-with-agisoft-photoscan/</loc>
     <lastmod>2020-02-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/photoscan/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -62,11 +62,6 @@
   <url>
     <loc>/tags/graph/</loc>
     <lastmod>2019-07-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/2020-02-27-uav-images-with-agisoft-photoscan/</loc>
     <priority>0</priority>
   </url>
   
