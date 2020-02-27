@@ -13,15 +13,15 @@ tags:
 
 
 <p>This tutorial will guide to create <strong>3D point cloud</strong>, <strong>Digitla Elevation Model (DEM)</strong>, and <strong>Ortho-Mosaic</strong> from your UAV-borne RGB images (<em>e.g. DJI FC330</em>). This tutorial use <strong>Agisoft PhotoScan</strong> software.</p>
-<div id="image-export" class="section level1">
-<h1>Image export</h1>
+<div id="image-export" class="section level2">
+<h2>Image export</h2>
 <ul>
 <li>Copy camera images (JPGs) to the local folder in your computer from the micro SD card of the drone.</li>
 <li>Right click one of the image and click the properties and check the location data under the GPS section in the ‘Detail’ tab.</li>
 </ul>
 </div>
-<div id="pre-proceedure" class="section level1">
-<h1>Pre proceedure</h1>
+<div id="pre-proceedure" class="section level2">
+<h2>Pre proceedure</h2>
 <ul>
 <li>Open Agisoft PhotoScan.</li>
 <li>Click <em>Workflow</em> drop down menu and click <em>Add photos</em>. See Figure 1a.</li>
@@ -47,7 +47,17 @@ tags:
 <li>Before starting the next process, change the coordinate system to your local coordinate system to match the coordinate system with your GCP coordinates. To change it, click <em>Convert</em> icon in the <em>Reference</em> pane. Select your coordinate system and click <em>OK</em> in the new window. See the Figure 2a.</li>
 </ul>
 <div class="figure">
-<img src="im_resources/convert_crs.png" alt="Figure 2a: Convert coordinates" />
-<p class="caption">Figure 2a: Convert coordinates</p>
+<img src="im_resources/convert_crs.png" alt="Figure 2: Convert coordinates" />
+<p class="caption">Figure 2: Convert coordinates</p>
+</div>
+</div>
+<div id="sfm-process" class="section level2">
+<h2>SFM process</h2>
+<blockquote>
+<p><strong>Structure From Motion (SFM)</strong> process generatew 3D data from overlapping images. The input for the process is overlapping images with geo-tag data. GCP can be utlised to get an geo-referenced output. <em>The Dense Point Cloud</em>, <em>The Mesh</em>, <em>The Digital Elevation Model (DEM)</em>, and <em>The Digital Orthomosaic (DOM)</em> are the main outputs from the SFM process.</p>
+</blockquote>
+<div class="figure">
+<img src="im_resources/sfm.png" alt="Figure 3: Flow chart of the SFM process" />
+<p class="caption">Figure 3: Flow chart of the SFM process</p>
 </div>
 </div>

@@ -12,12 +12,12 @@ tags:
 
 This tutorial will guide to create **3D point cloud**, **Digitla Elevation Model (DEM)**, and **Ortho-Mosaic** from your UAV-borne RGB images (*e.g. DJI FC330*). This tutorial use **Agisoft PhotoScan** software.
 
-# Image export
+## Image export
 
 * Copy camera images (JPGs) to the local folder in your computer from the micro SD card of the drone.
 * Right click one of the image and click the properties and check the location data under the GPS section in the 'Detail' tab.
 
-# Pre proceedure
+## Pre proceedure
 
 * Open Agisoft PhotoScan.
 * Click *Workflow* drop down menu and click *Add photos*. See Figure 1a.
@@ -36,4 +36,10 @@ This tutorial will guide to create **3D point cloud**, **Digitla Elevation Model
 * Before starting the next process, change the coordinate system to your local coordinate system to match the coordinate system with your GCP coordinates. To change it, click *Convert* icon in the *Reference* pane. Select your coordinate system and click *OK* in the new window. See the Figure 2a.
 
 
-![Figure 2a: Convert coordinates](im_resources/convert_crs.png)
+![Figure 2: Convert coordinates](im_resources/convert_crs.png)
+
+## SFM process
+
+> **Structure From Motion (SFM)** process generatew 3D data from overlapping images. The input for the process is overlapping images with geo-tag data. GCP can be utlised to get an geo-referenced output. *The Dense Point Cloud*, *The Mesh*, *The Digital Elevation Model (DEM)*, and *The Digital Orthomosaic (DOM)* are the main outputs from the SFM process.
+
+![Figure 3: Flow chart of the SFM process](im_resources/sfm.png)
