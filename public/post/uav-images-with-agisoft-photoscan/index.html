@@ -110,6 +110,52 @@ Image exportCopy camera images (JPGs) to the local folder in your computer fro
 <img src="im_resources/sfm.png" alt="Figure 3: Flow chart of the SFM process" />
 <p class="caption">Figure 3: Flow chart of the SFM process</p>
 </div>
+<div id="step-01---align-photos" class="section level3">
+<h3>Step 01 - Align photos</h3>
+<p>Photos are aligned according to the points which are determined from image matching techniques. The output from this step is the <strong>sparse point cloud</strong>.</p>
+<ol style="list-style-type: lower-roman">
+<li>Go to <em>workflow</em> drop down menu and click <em>Align Photos</em>.</li>
+<li>Parameters for <em>Align Photos</em>;
+<ul>
+<li><em>Accuracy</em> - Medium or High (Don’t make it to the Highest unless if you have very powerful computer).</li>
+<li>Tick on <em>Generic preselection</em>, <em>Reference preselection</em>, and, <em>Adaptive camera model fitting</em>.</li>
+<li>Keep the default <em>Key point limit</em>, and <em>Tie point limit</em>.</li>
+</ul></li>
+<li>Click <em>OK</em> to run the process.</li>
+<li>It will take some time (About an hour) and have a break.</li>
+</ol>
+<p>After the process, you can see blue squares on the model pane which indicating the actual photos. In the workspace image list, you can see how many photos were aligned out of total photos. If it is successful align process, you could see all photos are aligned. If there are any not aligned photos, there is <em>NA</em> after the name of the photo in the list. Select not aligned photos and right click and click <em>Align Selected Camera</em>.</p>
+</div>
+<div id="step-02---optimisation" class="section level3">
+<h3>Step 02 - Optimisation</h3>
+<p>In the optimisation step, the <em>sparse point cloud</em> is georeferenced using external GCPs. Additionally, it enhances the camera lens parameters. This is not a mandatory step.</p>
+<ol style="list-style-type: lower-roman">
+<li>Add external GCPs using <em>import</em> icon in the Reference pane.</li>
+<li>There will be a window asking <em>Create new marker?</em>. Click <em>Yes</em> or <em>Yes to all</em>.</li>
+<li>Select all the images in the Reference pane and <em>uncheck</em> all the images.</li>
+<li>Identify the each marker in the each photo.</li>
+<li>Double click one of photos which visualises actual GCP (Double clicked photo is opened in new tab in the model pane.
+<ul>
+<li>Zoom into the GCP.</li>
+<li>Accurately position your respective marker by right click on the photo and click <em>place marker</em>.</li>
+<li>Do this for other photos where the same marker appears. (Minimum 5 photos). (Tip: After you selecting two photos for one marker, right click marker on the reference pane and click <em>Filter photos by Marker</em>. It filtered all the photos which may have the same marker.)</li>
+</ul></li>
+<li>Follow the same procedure for other GCPs and accurately position them on the respective photos.</li>
+<li>After adding more than two GCPs, you can click <em>update</em> icon. It changes the model according to new markers.</li>
+<li>Finally, check the <em>Error (m)</em> and, <em>Error (pix)</em>. Then move your markers to reduce the error. Do not forget click <em>update</em> after setting up each marker.</li>
+<li>At least four markers are needed for the control points. But if you have more than four, you can decide which points for <em>control points</em> and which for <em>check points</em>. (Always more is the better).</li>
+<li>After you get reasonable low error click <em>Optimise Camera</em> icon (Star Icon) in the reference pane. Then click <em>OK</em>.</li>
+<li>Check your final error after this process. If it is not enough for your study, move your GCPs again and repeat the optimisation.</li>
+<li>The output of this step is georeferenced sparse point cloud. See the Figure~\ref{fig:sc* for the sparse point cloud after optimisation.</li>
+</ol>
+<div class="figure">
+<img src="im_resources/sc.png" alt="Figure 4: The Sparse Point Cloud after optimisation" />
+<p class="caption">Figure 4: The Sparse Point Cloud after optimisation</p>
+</div>
+</div>
+<div id="step-03---build-dense-cloud" class="section level3">
+<h3>Step 03 - Build dense cloud</h3>
+</div>
 </div>
 
 		</div><div id="disqus_thread"></div>
