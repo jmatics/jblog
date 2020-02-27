@@ -3,7 +3,8 @@ title: UAV images with Agisoft PhotoScan
 author: Jayan
 date: '2020-02-27'
 slug: uav-images-with-agisoft-photoscan
-categories: []
+categories:
+  - UAV
 tags:
   - UAV
   - PhotoScan
@@ -27,22 +28,22 @@ This tutorial will guide to create **3D point cloud**, **Digitla Elevation Model
 * In the *Model* pane, camera positions are shown with respective image names. Camera position can be turn on/off by clicking the *Camera* icon in the top tool bar.
 * To view the images' geotag data (including roataion angles), click *Reference* tab at lower left. See the Figure 1c.
 
-![Figure 1a: Workflow menu](im_resources/add_photos.png)
+![Figure 1a: Workflow menu](../../static/img/add_photos.png)
 
-![Figure 1b: Workspace view](im_resources//workspace.png)
+![Figure 1b: Workspace view](../../static/img/workspace.png)
 
-![Figure 1c: Reference pane view](im_resources/reference_pane.png)
+![Figure 1c: Reference pane view](../../static/img/reference_pane.png)
 
 * Before starting the next process, change the coordinate system to your local coordinate system to match the coordinate system with your GCP coordinates. To change it, click *Convert* icon in the *Reference* pane. Select your coordinate system and click *OK* in the new window. See the Figure 2a.
 
 
-![Figure 2: Convert coordinates](im_resources/convert_crs.png)
+![Figure 2: Convert coordinates](../../static/img/convert_crs.png)
 
 ## SFM process
 
 > **Structure From Motion (SFM)** process generatew 3D data from overlapping images. The input for the process is overlapping images with geo-tag data. GCP can be utlised to get an geo-referenced output. *The Dense Point Cloud*, *The Mesh*, *The Digital Elevation Model (DEM)*, and *The Digital Orthomosaic (DOM)* are the main outputs from the SFM process.
 
-![Figure 3: Flow chart of the SFM process](im_resources/sfm.png)
+![Figure 3: Flow chart of the SFM process](../../static/img/sfm.png)
 
 ### Step 01 - Align photos
 
@@ -79,6 +80,7 @@ xi) Check your final error after this process. If it is not enough for your stud
 xii) The output of this step is georeferenced sparse point cloud.  See the Figure~\ref{fig:sc* for the sparse point cloud after optimisation.
 
 
-![Figure 4: The Sparse Point Cloud after optimisation](im_resources/sc.png)
+![Figure 4: The Sparse Point Cloud after optimisation](../../static/img/sc.png)
 
 ### Step 03 - Build dense cloud
+
