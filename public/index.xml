@@ -6,20 +6,10 @@
     <description>Recent content on Jayan Wijesingha</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2019 14:02:01 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>UAV images with Agisoft PhotoScan</title>
-      <link>/post/uav-images-with-agisoft-photoscan/</link>
-      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/uav-images-with-agisoft-photoscan/</guid>
-      <description>This tutorial will guide to create 3D point cloud, Digitla Elevation Model (DEM), and Ortho-Mosaic from your UAV-borne RGB images (e.g. DJI FC330). This tutorial use Agisoft PhotoScan software.
-Image exportCopy camera images (JPGs) to the local folder in your computer from the micro SD card of the drone.Right click one of the image and click the properties and check the location data under the GPS section in the ‘Detail’ tab.</description>
-    </item>
     
     <item>
       <title>About</title>
