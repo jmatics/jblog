@@ -5,7 +5,10 @@ date: '2020-02-27'
 slug: uav-images-with-agisoft-photoscan
 categories:
   - PhotoScan
-tags: "page"
+type: "page"
+tags: 
+  - photoscan
+  - UAV
 draft: yes
 ---
 
